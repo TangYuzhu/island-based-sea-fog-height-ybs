@@ -38,6 +38,15 @@ filelist_49cases.csv
 It contains one relative path to a MODIS Band 3 NPY file per row. The list has
 49 entries and no header.
 
+### Excluded-Case Preview Images
+
+Preview images for candidate sea fog cases that were considered during case
+screening but excluded from the final 49-case validation set are archived in
+[`sea_fog_case_preview_images/`](./sea_fog_case_preview_images/). These images
+are provided for transparency and qualitative review of the case-selection
+process. They are not listed in `filelist_49cases.csv` and are not included in
+the reported validation metrics.
+
 Island peak elevations are read from:
 
 ```text
@@ -87,6 +96,7 @@ taken from `island_info_nasadem.csv` to ensure a consistent source.
 |-- modis_b03/
 |-- modis_cths/
 |-- modis_imgs/
+|-- sea_fog_case_preview_images/
 |-- calipso_sfths/
 |-- scatter_figs/
 |-- height_compare/
@@ -222,6 +232,9 @@ failed case is reported and skipped without stopping the remaining cases.
   data providers.
 - `excluded_cases/`, if present locally, is an archive of cases not referenced
   by `filelist_49cases.csv`; it is not read by `main.py`.
+- Preview images corresponding to candidate cases excluded during screening are
+  retained in [`sea_fog_case_preview_images/`](./sea_fog_case_preview_images/)
+  for transparency; they are not part of the active validation set.
 - The current workflow assumes the grid geometry and resolutions specified in
   `config.py`. Verify these values before using a different gridded product.
 
